@@ -1,13 +1,14 @@
 from PyQt6.QtWidgets import QApplication
-from PyQt6.QtGui import QIcon
-
-import os
+from PyQt6.QtGui import QIcon, QPixmap
 
 from interface.controller.MainWindowController import MainWindow
+import assets.icons.resources
 
 if __name__ == '__main__':
     app = QApplication([])
     window = MainWindow()
-    window.setWindowIcon(QIcon(os.path.join(os.path.curdir, 'app/assets/icons/icon.ico')))
+    icon = QIcon()
+    icon.addPixmap(QPixmap(':icon.ico'), QIcon.Mode.Normal, QIcon.State.Off)
+    window.setWindowIcon(icon)
     window.show()
     app.exec()
