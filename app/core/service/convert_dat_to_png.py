@@ -25,11 +25,11 @@ def paint_img(color_array) -> Image:
     return img
 
 
-def get_color_array(map_file_name: str) -> array:
+def get_color_array(map_file_name: str) -> List[int]:
     with gzip.open(map_file_name, 'rb') as gzip_file:
         nbt = NBTFile(gzip_file)
         blockbytes = nbt['data']['colors'].value
-        data = array('b', blockbytes)
+        data = array('B', blockbytes)
         return data
 
 
